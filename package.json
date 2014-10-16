@@ -1,6 +1,6 @@
 {
   "name": "onetimepad",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple one time pad command line tool",
   "main": "app.js",
   "scripts": {
@@ -11,5 +11,14 @@
   "dependencies": {
     "chance": "^0.6.1",
     "optimist": "^0.6.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trevorstarick/onetimepad.git"
+  },
+  "bugs": {
+    "url": "https://github.com/trevorstarick/onetimepad/issues"
+  },
+  "homepage": "https://github.com/trevorstarick/onetimepad"
 }
