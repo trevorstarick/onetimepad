@@ -64,22 +64,22 @@ var otp = {
   }
 };
 
-if (argv.decode) {
-  var ext = argv.decode.split('.');
+function getExtension(string) {
+  var ext = string.split('.');
   ext = ext.length > 1 ? '.' + ext[ext.length - 1] : '';
-  var f = fs.readFileSync(argv.decode);
-  var d = otp.decode(f);
+  return ext;
+}
+
+if (argv.decode) {
+  var ext = getExtension(argv.decode);
+  var d = otp.decode(fs.readFileSync(argv.decode));
   fs.writeFileSync('decoded' + ext, d);
 } else if (argv.encode) {
-  var ext = argv.encode.split('.');
-  ext = ext.length > 1 ? '.' + ext[ext.length - 1] : '';
-  var f = fs.readFileSync(argv.encode);
-  var e = otp.encode(f);
+  var ext = getExtension(argv.encode);
+  var e = otp.encode(fs.readFileSync(argv.encode));
   fs.writeFileSync('encoded' + ext, e);
 } else {
-  var ext = argv._[0].split('.');
-  ext = ext.length > 1 ? '.' + ext[ext.length - 1] : '';
-  var f = fs.readFileSync(argv._[0]);
-  var e = otp.encode(f);
+  var ext = getExtension(argv._[0]);
+  var e = otp.encode(fs.readFileSync(argv._[0]););
   fs.writeFileSync('encoded' + ext, e);
 }
